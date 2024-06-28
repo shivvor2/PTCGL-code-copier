@@ -1,6 +1,5 @@
 from pynput import keyboard
 
-SOURCE_FILE = "codes.txt"
 BATCH_SIZE = 10 # PTCGL only supports 10 codes per redeem on9
 
 KEY_NEXT_BATCH = keyboard.Key.space
