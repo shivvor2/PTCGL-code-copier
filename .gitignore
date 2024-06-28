@@ -1,2 +1,3 @@
-codes1.txt
-codes.txt
+dist/
+build/
+codes/

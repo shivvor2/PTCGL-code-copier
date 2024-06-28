@@ -4,7 +4,14 @@ from config import *
 # States
 state_tracker = StateTracker(0,0,False) # Yes this is very stupid
 
-code_list = get_all_code("codes.txt")
+# Reads all txt files from codes folder
+path = "./codes"
+code_list = []
+for file in os.listdir(path):
+    if file.endswith(".txt"):
+        code_list.extend(get_all_code(f"{path}\{file}"))
+        
+# Seperate code into batches
 code_batches = [code_list[x: x + BATCH_SIZE] for x in range(0, len(code_list), BATCH_SIZE)]
 
 # # shorthand (cuz Im lazy)
