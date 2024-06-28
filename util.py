@@ -2,6 +2,7 @@ import pyperclip
 from pynput import keyboard
 from dataclasses import dataclass
 from config import *
+import os
 
 # This is stupid, if only python has referencing
 @dataclass
@@ -21,6 +22,7 @@ def get_all_code(txt_name) -> list[str]:
 
 def get_current_code(code_batches, state_tracker: StateTracker) -> None:
     pyperclip.copy(code_batches[state_tracker.current_batch_index][state_tracker.current_item_index])
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(f"Copied code {state_tracker.current_item_index+1}/{len(code_batches[state_tracker.current_batch_index])} for batch {state_tracker.current_batch_index+1}/{len(code_batches)}")
 
 def move(code_batches, state_tracker: StateTracker, action) -> None:
